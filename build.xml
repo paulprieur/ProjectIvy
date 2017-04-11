@@ -112,11 +112,11 @@ Let's go!
             'Generates' the class source. It actually just echo a simple java 
             source code to a file. In real life this file would already be
             present on your file system, and this target wouldn't be necessary.
-         ================================= -->
+         ================================= 
     <target name="generate-src">
         <mkdir dir="${src.dir}/example"/>
         <echo file="${src.dir}/example/Hello.java">
-package example;
+package example;--->
 
 import org.apache.commons.lang.WordUtils;
 
@@ -126,6 +126,16 @@ public class Hello {
         System.out.println("standard message : " + message);
         System.out.println("capitalized by " + WordUtils.class.getName() 
                                 + " : " + WordUtils.capitalizeFully(message));
+	int monmax = 0;
+	CSVReader reader = new CSVReader(new FileReader("data.csv"));
+	List<String[]> myEntries = reader.readAll();
+	for (String temp : myEntries) {
+		System.out.println("Nombre lu : "+temp);
+		if(temp>monmax) {
+			monmax = temp;
+		}
+	}
+	System.out.println("Max : "+monmax);
     }
 }
         </echo>
