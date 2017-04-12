@@ -106,7 +106,6 @@ Let's go!
     </target>
 
     <target name = "report" depends="go" description="create report">
-	<mkdir dir="${report.dir}"/>
         <ivy:report todir="report" />
     </target>
         
